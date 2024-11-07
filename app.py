@@ -1,10 +1,22 @@
 import gradio as gr
 import pandas as pd
 import pickle
+import os
+import requests
 
-# Load the model directly
-with open('rfweights.pkl', 'rb') as f:
-    rfmodel = pickle.load(f)
+# URL for downloading the model
+model_url = "https://your-cloud-link/rfweights.pkl"
+model_path = "rfweights.pkl"
+
+# Download the model if it doesn't exist locally
+if not os.path.exists(model_path):
+    response = requests.get(model_url)
+    with open(model_path, "wb") as file:
+        file.write(response.content)
+
+# Load the model
+with open(model_path, 'rb') as file:
+    rfmodel = pickle.load(file)
 
 # Define mappings directly (example values, adjust as needed)
 certificates_references = {
