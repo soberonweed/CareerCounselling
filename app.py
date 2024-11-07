@@ -5,7 +5,7 @@ import os
 import requests
 
 # URL for downloading the model
-model_url = "https://your-cloud-link/rfweights.pkl"
+model_url = "https://drive.google.com/file/d/1f6d505a3IBmHD6LIgFTSCgf9NXXrDjbq/view?usp=sharing"
 model_path = "rfweights.pkl"
 
 # Download the model if it doesn't exist locally
